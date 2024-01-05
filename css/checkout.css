@@ -1,0 +1,30 @@
+body {
+    height: 120vh;
+}
+
+form>label,
+input {
+    width: 60%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin: auto;
+    border-radius: 5px;
+    height: max-content;
+    border: 1px solid black;
+    /* margin-top: 30px; */
+}
+
+h4 {
+    text-align: center;
+    justify-content: center;
+    font-family: cursive;
+}
