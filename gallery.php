@@ -25,12 +25,34 @@
         <h3>Gallery</h3>
 
         <div class="container-fluid images">
-            <img src="images/cause-5.jpg">
-            <img src="images/cause-6.jpg">
-            <img src="images/image_2.jpg">
-            <img src="images/image_1.jpg">
-            <img src="images/sdg.jpg">
-            <img src="images/background 1.avif">
+            <div class="">
+                <img src="images/cause-5.jpg">
+                <img src="images/cause-6.jpg">
+                <img src="images/image_2.jpg">
+                
+            </div>
+
+            <div class="">
+                <img src="images/image_1.jpg">
+                <img src="images/sdg.jpg">
+                <img src="images/background 1.avif">
+
+            </div>
+
+            <div class="">
+                <img src="images/cause-5.jpg">
+                <img src="images/cause-6.jpg">
+                <img src="images/image_2.jpg">
+
+            </div>
+
+            <div class="">
+                <img src="images/sdg.jpg">
+                <img src="images/image_1.jpg">
+                <img src="images/background 1.avif">
+
+            </div>
+
         </div>
     </div>
 

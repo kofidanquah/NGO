@@ -180,27 +180,36 @@
     <!-- Team -->
     <h4>Our Team</h4>
     <div class="row container-fluid">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="p-4 text-center mb-4">
                 <img class="img-responsive" src="images/background.jpg">
                 <p>This is a dummy text for filling out spaces. Just some random words...</p>
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="p-4 text-center mb-4">
                 <img class="img-responsive" src="images/img_5terre_wide.jpg">
                 <p>This is a dummy text for filling out spaces. Just some random words...</p>
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <div class="p-4 text-center mb-4">
                 <img class="img-responsive" src="images/background.jpg">
                 <p>This is a dummy text for filling out spaces. Just some random words...</p>
 
             </div>
         </div>
+
+        <div class="col-sm-3">
+            <div class="p-4 text-center mb-4">
+                <img class="img-responsive" src="images/img_5terre_wide.jpg">
+                <p>This is a dummy text for filling out spaces. Just some random words...</p>
+            </div>
+        </div>
+
+        <a href="#"> + SEE MORE</a>
     </div>
     <hr>
 
