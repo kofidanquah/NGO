@@ -61,69 +61,48 @@ function test_input($data)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
         body {
-            background-repeat: no-repeat;
+            background-image: url("../images/plain\ wallpaper.jpg");
             background-size: cover;
-            display: flex;
             align-items: center;
             justify-content: center;
-            height: 90vh;
         }
 
         form {
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: rgba(255, 255, 255, 0.5);
-            width: 240px;
-            padding: 20px;
+            border-radius: 20px;
+            padding: 12px 20px;
+            margin: 8px 0;
             margin: auto;
-            border-radius: 0px;
-            height: 50vh;
-            border: 2px solid black;
-            box-shadow: 10px 10px 10px;
         }
 
         h2 {
-            text-align: center;
             font-size: 30px;
             margin-bottom: 20px;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-family: "Poppins", sans-serif;
+            margin-left: 90px;
         }
 
         input {
             width: 100%;
+            max-width: 350px;
             padding: 12px 20px;
             margin: 8px 0;
             display: inline-block;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box;
+            text-align: center;
+            justify-content: center;
         }
 
-        input[type=submit] {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+        @media(min-width: 1024px) {
+            form {
+                margin-left: 500px;
 
-        #submit:hover {
-            background-color: #4CAF50;
-            cursor: pointer;
-        }
-
-        .error {
-            color: red !important;
-        }
-
-        .success {
-            color: green !important;
+            }
         }
     </style>
     <title>Admin Log in</title>
@@ -131,12 +110,20 @@ function test_input($data)
 
 <body>
 
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
-        <h2>Admin Log In</h2>
-        <br><input type="text" name="username" autocomplete="off" placeholder="username" autofocus required><br>
-        <br><input type="password" name="password" autocomplete="off" placeholder="password" required><br><br>
-        <input type="submit" value="Log in" id="submit"><br>
-    </form>
+    <div class="container-fluid">
+
+        <div class="">
+            <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+                <h2>Admin Login</h2>
+                Username<br>
+                <input type="text" name="username" autocomplete="off" required><br>
+                Password<br>
+                <input type="password" name="password" autocomplete="off" required><br><br>
+                <input class="btn btn-success" type="submit" value="Log in" id="submit"></input>
+                <br>
+            </form>
+        </div>
+    </div>
 
 
 </body>

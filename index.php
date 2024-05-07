@@ -8,77 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .info {
-            background-color: rgb(190, 190, 190);
-        }
+    <link rel="stylesheet" href="css/style.css">
 
-        .living {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/background\ 1.avif');
-            /* background-image: url('images/background\ 1.avif'); */
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            height: 600px;
-            /* filter: blur(3px);
-            -webkit-filter: blur(3px); */
-        }
-
-        .living p {
-            font-size: 38px;
-            font-family: "Poppins", sans-serif;
-            animation: 1s ease-out 0s 1 slideInLeft;
-
-            /* font-family:monospace; */
-        }
-
-        h4 {
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .col-md-4:hover {
-            background-color: rgb(250, 250, 240);
-            cursor: pointer;
-        }
-
-        img .d-block {
-            width: max-content;
-            height: max-content;
-        }
-
-        .carousel {
-            width: max-content;
-            height: max-content;
-            z-index: 1;
-        }
-
-        .carousel-item {
-            width: max-content;
-            height: 10%;
-            object-fit: cover;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        @keyframes slideInLeft {
-            0% {
-                transform: translateX(-50%);
-            }
-
-            100% {
-                transform: translateX(0%);
-            }
-        }
-
-        .text {
-            animation: slideInLeft 2s ease-in-out;
-        }
-    </style>
-    <!-- <link rel="stylesheet" href="css/index.css"> -->
     <title>NGO</title>
 </head>
 
@@ -179,32 +110,32 @@
 
     <!-- Team -->
     <h4>Our Team</h4>
-    <div class="row container-fluid">
+    <div class="row container-fluid team">
         <div class="col-sm-3">
-            <div class="p-4 text-center mb-4">
-                <img class="img-responsive" src="images/background.jpg">
+            <div class="image-wrapper p-4 text-center">
+                <img class="team-image" src="images/Bill gates.webp">
+                <p><b>This is a dummy text</b><br>. Just some random words...</p>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="image-wrapper p-4 text-center">
+                <img class="team-image" src="images/Elon Musk.jpg">
                 <p>This is a dummy text for filling out spaces. Just some random words...</p>
             </div>
         </div>
 
         <div class="col-sm-3">
-            <div class="p-4 text-center mb-4">
-                <img class="img-responsive" src="images/img_5terre_wide.jpg">
-                <p>This is a dummy text for filling out spaces. Just some random words...</p>
-            </div>
-        </div>
-
-        <div class="col-sm-3">
-            <div class="p-4 text-center mb-4">
-                <img class="img-responsive" src="images/background.jpg">
+            <div class="image-wrapper p-4 text-center">
+                <img class="team-image" src="images/background.jpg">
                 <p>This is a dummy text for filling out spaces. Just some random words...</p>
 
             </div>
         </div>
 
         <div class="col-sm-3">
-            <div class="p-4 text-center mb-4">
-                <img class="img-responsive" src="images/img_5terre_wide.jpg">
+            <div class="image-wrapper p-4 text-center">
+                <img class="team-image" src="images/img_5terre_wide.jpg">
                 <p>This is a dummy text for filling out spaces. Just some random words...</p>
             </div>
         </div>
@@ -234,7 +165,7 @@
                 </ul>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4 social-media">
                 Connect with Us <br>
                 <i class="fa fa-whatsapp fa-2x"></i>
                 <i class="fa fa-youtube fa-2x"></i>

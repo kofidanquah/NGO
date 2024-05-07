@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
         .sidenav {
@@ -73,10 +74,27 @@ h4 {
         <h4>Account</h4>
         <a href="#"><i class="fa fa-question-circle"></i> FAQ</a>
         <a href="#"><i class="fa fa-gear"></i> Settings</a>
-        <a href="logout.php"><i class="fa fa-sign-out"></i> Logout</a>
+        <a href="#" onclick="confirmLogout()"><i class="fa fa-sign-out"></i> Logout</a>
 
     </div>
 
+    <script>
+        function confirmLogout(){
+                    Swal.fire({
+            title: "Are you sure you want to logout?",
+            icon: "warning",
+            html: "<form id='adminlogout' action='logout.php' method='POST'>" +
+                "</form>",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Logout",
+            preConfirm: function() {
+                document.getElementById('adminlogout').submit();
+            }
+        })
+        }
+    </script>
 
 </body>
 
