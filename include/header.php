@@ -21,19 +21,8 @@
             --gray: #85888C;
         }
 
-        /* variables*/
-        /* Reset */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background-color: white;
             font-family: "Poppins", sans-serif;
-            /* background-image: url(../images/background\ 1.avif); */
         }
 
         a {
@@ -193,7 +182,7 @@
 <body>
     <header class="header">
         <!-- Logo -->
-        <a href="#" class="logo">LG</a>
+        <a href="index.php" class="logo">LG</a>
         <!-- Hamburger icon -->
         <input class="side-menu" type="checkbox" id="side-menu" />
         <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>

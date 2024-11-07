@@ -24,22 +24,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($status) {
             if ($stmt->rowCount() > 0) {
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-                // var_dump($data); exit;
                 $_SESSION["username"] = $username;
                 $_SESSION["status"] = false;
                 $_SESSION["message"] = "Login sucessful";
-                header("location:admin.php");
+                header("location:layouts/menus.php");
                 die();
             } else {
                 $_SESSION["status"] = true;
                 $_SESSION["message"] = "Login failed";
-                header("location:adminlogin.php");
+                header("location:login.php");
                 die();
             }
         } else {
             $_SESSION["status"] = true;
             $_SESSION["message"] = $stmt->errorInfo();
-            header("location:adminlogin.php");
+            header("location:login.php");
             die();
         }
     }
