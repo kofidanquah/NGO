@@ -2,10 +2,15 @@
 if (isset($_SESSION["success"])) {
     $success = $_SESSION["success"];
     unset($_SESSION["success"]);
-
-}else{
+} else {
     $success = "";
 }
+
+$query = $conn->prepare("SELECT * FROM team ORDER BY created_at DESC");
+$query->execute();
+$data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$count = 1;
 ?>
 
 <main>
@@ -24,7 +29,7 @@ if (isset($_SESSION["success"])) {
     ?>
     <div class="card">
         <div class="card-body">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="myTable">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -34,8 +39,42 @@ if (isset($_SESSION["success"])) {
                         <th>Action</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($data as $member) { ?>
+                        <tr>
+                            <td><?php echo $count++ ?></td>
+                            <td><?php echo $member['name'] ?></td>
+                            <td><?php echo $member['position'] ?></td>
+                            <td>
+                                <?php if ($member['status'] == 1) {
+                                    echo '<a class="badge bg-success">Active</a>';
+                                } else {
+                                    echo '<a class="badge bg-danger">Inactive</a>';
+                                } ?>
+                            </td>
+                            <td>
+                                <div class='dropdown'> <button class='btn btn-secondary btn-sm dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>Actions</button>
+                                    <ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+                                        <li><a class='dropdown-item' href='javascript:void(0)' onclick=''><i class='fa-solid fa-arrows-spin'></i> Change Status</a></li>
+                                        <li><a class='dropdown-item' href='../team/views/edit.php?id=<?php echo $member['id'] ?>'><i class='fa fa-pencil'></i> Edit</a></li>
+                                        <li><a class='dropdown-item' href='javascript:void(0)' onclick='deleteRecord()'><i class='fa fa-trash'></i> Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
             </table>
 
         </div>
     </div>
 </main>
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": true
+        });
+    });
+</script>

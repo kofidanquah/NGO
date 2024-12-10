@@ -37,7 +37,7 @@ switch ($page) {
         include '../report/views/list.php';
         break;
 
-        // subs
+        // team routes 
     case 'team.new':
         include '../team/views/new.php';
         break;

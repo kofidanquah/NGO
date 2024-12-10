@@ -1,0 +1,78 @@
+.info {
+    background-color: rgb(190, 190, 190);
+}
+
+.living {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/background\ 1.avif');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 600px;
+}
+
+.living p {
+    font-size: 38px;
+    font-family: "Poppins", sans-serif;
+    animation: 1s ease-out 0s 1 slideInLeft;
+}
+
+h4 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-md-4:hover {
+    background-color: rgb(250, 250, 240);
+    cursor: pointer;
+}
+
+img .d-block {
+    width: max-content;
+    height: max-content;
+}
+
+.carousel {
+    width: max-content;
+    height: max-content;
+    z-index: 1;
+}
+
+.carousel-item {
+    width: max-content;
+    height: 10%;
+    object-fit: cover;
+}
+
+.carousel img {
+    height: 400px;
+    width: 900px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.team-image {
+    width: 200px;
+    height: 150px;
+    backface-visibility: hidden;
+    transition: all 0.5s;
+}
+
+.team {
+    background-color: rgb(84, 95, 113);
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.text {
+    animation: slideInLeft 2s ease-in-out;
+}

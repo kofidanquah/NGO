@@ -1,10 +1,11 @@
 <?php
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-} else {
-    header("Location:../login.php");
-    die();
-}
+} 
+// else {
+//     header("Location:../login.php");
+//     die();
+// }
 
 ?>
 <html lang="en">
@@ -261,7 +262,9 @@ if (isset($_SESSION['username'])) {
                 padding: 10px;
             }
         }
-
+a{
+    text-decoration: none;
+}
 
         /* new */
 
@@ -367,7 +370,7 @@ if (isset($_SESSION['username'])) {
 
             <li>
                 <a href="javascript:void(0);" id="reportMenu">
-                    <span class="material-symbols-outlined"> monitoring </span>
+                    <span class="material-symbols-outlined"> dataset </span>
                     Content<span id="reportArrowIcon" class="material-symbols-outlined"> chevron_right </span>
                 </a>
                 <ul id="reportSubMenu" class="submenu" style="display: none;">

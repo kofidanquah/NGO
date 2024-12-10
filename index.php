@@ -1,3 +1,16 @@
+<?php 
+require "config.php";
+
+// all partners
+$query = $conn->prepare("SELECT * FROM partners WHERE `status` = 1 ORDER BY created_at DESC");
+$query->execute();
+$data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+// all team members
+$sql = $conn->prepare("SELECT * FROM team WHERE `status` = 1 ORDER BY created_at DESC");
+$sql->execute();
+$row = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,105 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .info {
-            background-color: rgb(190, 190, 190);
-        }
-
-        .living {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/background\ 1.avif');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            height: 600px;
-        }
-
-        .living p {
-            font-size: 38px;
-            font-family: "Poppins", sans-serif;
-            animation: 1s ease-out 0s 1 slideInLeft;
-        }
-
-        h4 {
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .col-md-4:hover {
-            background-color: rgb(250, 250, 240);
-            cursor: pointer;
-        }
-
-        img .d-block {
-            width: max-content;
-            height: max-content;
-        }
-
-        .carousel {
-            width: max-content;
-            height: max-content;
-            z-index: 1;
-        }
-
-        .carousel-item {
-            width: max-content;
-            height: 10%;
-            object-fit: cover;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .image-wrapper {
-            width: 12rem;
-            margin: 0.4rem;
-            overflow: hidden;
-        }
-
-        .team-image {
-            width: 200px;
-            height: 150px;
-            backface-visibility: hidden;
-            transition: all 0.5s;
-        }
-
-        .team {
-            /* display: flex; */
-            /* flex-wrap: wrap; */
-            background-color: rgb(84, 95, 113);
-            width:max-content;
-        }
-
-        .team-image:hover {
-            transform: scale(1.3);
-            opacity: 0.8;
-        }
-
-        
-        @keyframes slideInLeft {
-            0% {
-                transform: translateX(-50%);
-            }
-
-            100% {
-                transform: translateX(0%);
-            }
-        }
-
-        .text {
-            animation: slideInLeft 2s ease-in-out;
-        }
-
-        
-    </style>
+    
+    <link rel="stylesheet" href="css/index.css">
     <title>NGO</title>
 </head>
 
 <body>
         <header class="header">
-        <?php include("include/header.php"); ?>
+        <?php include "include/header.php"; ?>
             </header>
             
         <div class="container-fluid text-white living ">
@@ -151,7 +73,7 @@
         <!-- carousel -->
         <div id="demo" class="carousel container-fluid slide col-sm-8" data-bs-ride="carousel">
             
-            <div class="carousel-indicators container-fluid">
+            <div class="carousel-indicators">
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
@@ -162,10 +84,10 @@
                     <img src="images/img_5terre_wide.jpg" class="d-block img-fluid">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img_5terre_wide.jpg" class="d-block img-fluid">
+                    <img src="images/image_1.jpg" class="d-block img-fluid">
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img_5terre_wide.jpg" class="d-block img-fluid">
+                    <img src="images/background 1.avif" class="d-block img-fluid">
                 </div>
             </div>
             
@@ -183,51 +105,31 @@
         <div class="container-fluid partners" id="partners">
             <h4>Our Partners</h4>
             <div class="row">
-                <div class="col-lg-3">
-                    <img src="images/unicef.png" class="partner" alt="unicef">
-                </div>
-                <div class="col-lg-3">
-                    <img src="images/WHO.png" class="partner" alt="WHO">
-                </div>
-                <div class="col-lg-3">
-                    <img src="images/gender.jpeg" class="partner" alt="Gender ministry">
-                </div>
-                <div class="col-lg-3">
-                    <img src="images/ges.png" class="partner" alt="GES">
-                </div>
+                <?php foreach ($data as $partner){ ?>
+                    <div class="col-md-3">
+                        <img src="uploads/<?php echo $partner['image'] ?>" class="partner" 
+                        width="10px" height="10px" alt="logo">
+                    </div>
+
+                    <?php } ?>
+                
             </div>
         </div>
         
         <!-- Team -->
         <div class="row container-fluid team">
             <h4>Our Team</h4>
-            <div class="col-sm-3">
-                <div class="image-wrapper p-4 text-center">
-                    <img class="team-image" src="images/wallpaper4.jpg">
-                    <p>This is a dummy text<br>. Just some random words...</p>
+            <div class="row">
+                <?php foreach($row as $team){ ?>
+                <div class="col-md-3">
+                    <div class="p-4 text-center">
+                        <img class="team-image" src="uploads/<?php echo $team['image'] ?>">
+                        <h6><?php echo $team['name'] ?></h6>
+                        <h6><?php echo $team['email'] ?></h6>
+                        <!-- <p>This is a dummy text<br>. Just some random words...</p> -->
+                    </div>
                 </div>
-            </div>
-            
-            <div class="col-sm-3">
-                <div class="image-wrapper p-4 text-center">
-                    <img class="team-image" src="images/sunset.png">
-                    <p>This is a dummy text for filling out spaces. Just some random words...</p>
-                </div>
-            </div>
-    
-            <div class="col-sm-3">
-                <div class="image-wrapper p-4 text-center">
-                    <img class="team-image" src="images/background.jpg">
-                    <p>This is a dummy text for filling out spaces. Just some random words...</p>
-                    
-                </div>
-            </div>
-            
-            <div class="col-sm-3">
-                <div class="image-wrapper p-4 text-center">
-                    <img class="team-image" src="images/img_5terre_wide.jpg">
-                    <p>This is a dummy text for filling out spaces. Just some random words...</p>
-                </div>
+                <?php } ?>
             </div>
             
             <a href="#"> + SEE MORE</a>
